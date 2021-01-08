@@ -11,9 +11,10 @@ namespace net.DataAccess
     class Class
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int cid { get; set; }
         public string cname { get; set; }    
-        public int mid { get; set; }
-        public virtual List<Student> Students { get; set; }
+        public int grade { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

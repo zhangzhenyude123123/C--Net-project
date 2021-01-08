@@ -50,6 +50,26 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -186,18 +206,17 @@
   <ItemGroup>
     <Compile Include="Business\Adds.cs" />
     <Compile Include="Business\Deletes.cs" />
+    <Compile Include="Business\Selects.cs" />
     <Compile Include="Business\Updates.cs" />
     <Compile Include="Controller\Dispay.cs" />
     <Compile Include="DataAccess\Class.cs" />
+    <Compile Include="DataAccess\ClassHandler.cs" />
     <Compile Include="DataAccess\Context.cs" />
     <Compile Include="DataAccess\Student.cs" />
-    <Compile Include="Migrations\202101021546227_InitialCreate.cs" />
-    <Compile Include="Migrations\202101021546227_InitialCreate.Designer.cs">
-      <DependentUpon>202101021546227_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101030120411_Init.cs" />
-    <Compile Include="Migrations\202101030120411_Init.Designer.cs">
-      <DependentUpon>202101030120411_Init.cs</DependentUpon>
+    <Compile Include="DataAccess\StudentHandler.cs" />
+    <Compile Include="Migrations\202101081222505_Init.cs" />
+    <Compile Include="Migrations\202101081222505_Init.Designer.cs">
+      <DependentUpon>202101081222505_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="netprojectDataSet.cs">
@@ -253,11 +272,11 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101021546227_InitialCreate.resx">
-      <DependentUpon>202101021546227_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101030120411_Init.resx">
-      <DependentUpon>202101030120411_Init.cs</DependentUpon>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202101081222505_Init.resx">
+      <DependentUpon>202101081222505_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

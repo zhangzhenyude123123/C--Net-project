@@ -9,19 +9,21 @@ namespace net.Business
 {
     class Adds
     {
-        private Student student;
-        public void addstudent(int ssid, string sname, string ssex)
+        private StudentHandler studenthandler;
+        private ClassHandler classhandler;
+        public void Addstudent(int ssid, string sname, string ssex,int cid)
         {
-            //student = new Student();
-            //student.SetStudent(ssid, sname, ssex);
-            //Console.WriteLine(student.ssid.ToString(), student.sname.ToString(), student.ssex.ToString());
+            studenthandler = new StudentHandler();
+            studenthandler.AddStudent(ssid, sname, ssex,cid);
         }
 
-        //public addclass(int cid, string cname)
-        //{
-        //    //查找cname的专业号，与数据库相对应
-        //}
-        //public addstudenttoclass(int ssid, int cid)
+        public void Addclass(int cid, string cname,int grade)
+        {
+            classhandler = new ClassHandler();
+            classhandler.AddClass(cid, cname, grade);
+
+        }
+        //public void AddStudentToClass(int ssid, int cid)
         //{
 
         //}

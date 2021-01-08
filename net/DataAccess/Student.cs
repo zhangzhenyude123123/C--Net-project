@@ -11,11 +11,12 @@ namespace net.DataAccess
     class Student
     {
         [Key]
-      
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ssid { get; set; }
         public string sname { get; set; }
         public string ssex { get; set; }
-        public virtual Class cid { get; set; }
+        public int cid { get; set; }
+        public virtual Class Class { get; set; }
 
     }
 }

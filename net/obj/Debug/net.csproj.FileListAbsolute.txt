@@ -188,6 +188,5 @@ D:\WorkSpace\.net\net\net\bin\Debug\EntityFramework.SqlServer.dll
 D:\WorkSpace\.net\net\net\bin\Debug\EntityFramework.xml
 D:\WorkSpace\.net\net\net\bin\Debug\EntityFramework.SqlServer.xml
 D:\WorkSpace\.net\net\net\bin\Debug\zh-Hans\EntityFramework.resources.dll
-D:\WorkSpace\.net\net\net\obj\Debug\net.Migrations.InitialCreate.resources
-D:\WorkSpace\.net\net\net\obj\Debug\net.csproj.GenerateResource.cache
 D:\WorkSpace\.net\net\net\obj\Debug\net.Migrations.Init.resources
+D:\WorkSpace\.net\net\net\obj\Debug\net.csproj.GenerateResource.cache
