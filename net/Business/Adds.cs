@@ -21,11 +21,7 @@ namespace net.Business
         {
             classhandler = new ClassHandler();
             classhandler.AddClass(cid, cname, grade);
-
         }
-        //public void AddStudentToClass(int ssid, int cid)
-        //{
-
-        //}
+       
     }
 }

@@ -17,7 +17,6 @@ namespace net.Business
 
         public void GetClassAllStudents(int cid)
         {
-            //从class手里查找下面的students
             var students = new StudentHandler();
             students.GetClassAllStudents(cid);
         }

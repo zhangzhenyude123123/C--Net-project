@@ -13,11 +13,17 @@ namespace net.Controller
         private Deletes deletes;
         private Updates updates;
         private Selects selects;
+        public int exitcode { get; set; }
+
+        public Dispay()
+        {
+            exitcode = 0;
+        }
 
         public void MainMenu()
         {
             Console.WriteLine("# MainMenu #");
-            Console.WriteLine("Select number to function:\n 1.AddMenu 2.UpdateMenu 3.DeleteMenu 4.Select:");
+            Console.WriteLine("Select number to function:\n 1.AddMenu 2.UpdateMenu 3.DeleteMenu 4.Select 5.Exit:");
             int num = int.Parse(Console.ReadLine());
             switch (num) {
                 case 1:
@@ -32,6 +38,9 @@ namespace net.Controller
                 case 4:
                     Selete();
                     break;
+                case 5:
+                    exitcode = 1;
+                    break;
                 default:
                     break;
             }
@@ -42,8 +51,8 @@ namespace net.Controller
         {
             adds = new Adds();
             Console.WriteLine("# AddMenu #");
-            Console.WriteLine("Select number to function:\n 1.Add student " +
-                "2.Add class 3.Add student to class:");
+            Console.WriteLine("Select number to function:\n 1.Add student 2.Add class: " +
+                "\n"+ "  OR Other Number to MainMenu");
             int num = int.Parse(Console.ReadLine());
             switch (num)
             {
@@ -62,11 +71,7 @@ namespace net.Controller
                     int grade = int.Parse(Console.ReadLine());
                     adds.Addclass(cid2, cname,grade);
                     break;
-                case 3:
-                    //Console.WriteLine("Please enter student id class id:");
-                    //int sids = int.Parse(Console.ReadLine());
-                    //int cids = int.Parse(Console.ReadLine());
-                    //adds.AddStudentToClass(sids, cids);
+                default:
                     break;
             }
         }
@@ -75,8 +80,8 @@ namespace net.Controller
         {
             updates = new Updates();
             Console.WriteLine("# UpdateMenu #");
-            Console.WriteLine("Select number to function:\n 1.update student " +
-                "2.update class ");
+            Console.WriteLine("Select number to function:\n 1.update student 2.update class:" +
+                "\n" + "  OR Other Number to MainMenu");
             int num = int.Parse(Console.ReadLine());
             switch (num)
             {
@@ -102,7 +107,8 @@ namespace net.Controller
             deletes = new Deletes();
             Console.WriteLine("# DeleteMenu #");
             Console.WriteLine("Select number to function:\n 1.delete student " +
-                "2.delete class 3.Remove students from class: ");
+                "2.delete class : " +
+                "\n" + "  OR Other Number to MainMenu");
             int num = int.Parse(Console.ReadLine());
             switch (num)
             {
@@ -116,9 +122,6 @@ namespace net.Controller
                     int cid = int.Parse(Console.ReadLine());
                     deletes.DeleteClass(cid);
                     break;
-                case 3:
-
-                    break;
                 default:
                     break;
             }
@@ -128,11 +131,14 @@ namespace net.Controller
         {
             selects = new Selects();
             Console.WriteLine("# SeleteMenu #");
-            Console.WriteLine("Select number to function:\n 1.Select one student 2.Select All student 3.Select one class'students 4.Select one class 5.Select All class: ");
+            Console.WriteLine("Select number to function:\n 1.Select one student 2.Select All student " +
+                "3.Select one class'students 4.Select one class 5.Select All class: " +
+                "\n" + "  OR Other Number to MainMenu");
             int num = int.Parse(Console.ReadLine());
             switch (num)
             {
                 case 1:
+                    Console.WriteLine("Please enter the student's id:");
                     int ssid = int.Parse(Console.ReadLine());
                     selects.GetStudent(ssid);
                     break;
@@ -140,10 +146,12 @@ namespace net.Controller
                     selects.GetALLStudent();
                     break;
                 case 3:
+                    Console.WriteLine("Please enter the class's id:");
                     int cid1 = int.Parse(Console.ReadLine());
                     selects.GetClassAllStudents(cid1);
                     break;
                 case 4:
+                    Console.WriteLine("Please enter the class's id:");
                     int cid2 = int.Parse(Console.ReadLine());
                     selects.GetClass(cid2);
                     break;
@@ -154,5 +162,6 @@ namespace net.Controller
                     break;
             }
         }
+
     }
 }

@@ -13,9 +13,16 @@ namespace net.DataAccess
        {
             using (var context = new Context())
             {
-                var classes = new Class { cid = cid1, cname = cname1,grade = grade1 };
-                context.Classes.Add(classes);
-                context.SaveChanges();
+                try
+                {
+                    var classes = new Class { cid = cid1, cname = cname1, grade = grade1 };
+                    context.Classes.Add(classes);
+                    context.SaveChanges();
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("Input is wrong!!!");
+                }
             }
        }
 
@@ -35,12 +42,19 @@ namespace net.DataAccess
         {
             using (var context = new Context())
             {
-                string sql = @"select * from Class where cid = ";
-                string cids = cid.ToString();
-                var cates = context.Classes.SqlQuery(sql + cid);
-                foreach (var item in cates)
+                try
                 {
-                    Console.WriteLine(item.cid + " " + item.cname + " " + item.grade);
+                    string sql = @"select * from Classes where cid = ";
+                    string cids = cid.ToString();
+                    var cates = context.Classes.SqlQuery(sql + cid);
+                    foreach (var item in cates)
+                    {
+                        Console.WriteLine(item.cid + " " + item.cname + " " + item.grade);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("The ID you entered is wrong!!!");
                 }
             }
         }
@@ -49,9 +63,16 @@ namespace net.DataAccess
         {
             using (var context = new Context())
             {
-                var classes = context.Classes.FirstOrDefault(s => s.cid == cid);
-                classes.grade = grade;
-                context.SaveChanges();
+                try
+                {
+                    var classes = context.Classes.FirstOrDefault(s => s.cid == cid);
+                    classes.grade = grade;
+                    context.SaveChanges();
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("The ID you entered is wrong!!!");
+                }
             }
 
         }
@@ -60,20 +81,18 @@ namespace net.DataAccess
         {
             using (var context = new Context())
             {
-                var classes = context.Classes.FirstOrDefault(s => s.cid == cid);
-                context.Classes.Remove(classes);
-                context.SaveChanges();
+                try
+                {
+                    var classes = context.Classes.FirstOrDefault(s => s.cid == cid);
+                    context.Classes.Remove(classes);
+                    context.SaveChanges();
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("The ID you entered is wrong!!!");
+                }
             }
         }
 
-        //public bool CheckClass(int cid)
-        //{
-        //    using (var context = new Context())
-        //    {
-                
-
-        //        return false;
-        //    }
-        //}
     }
 }
